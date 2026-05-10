@@ -857,8 +857,30 @@ footer {
   transform: translateY(0);
 }
 
+/* ── HERO LOGO ── */
+.hero-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 40px rgba(245,197,66,0.18)) drop-shadow(0 2px 12px rgba(0,0,0,0.5));
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 /* ── RESPONSIVO ── */
 @media (max-width: 900px) {
+  .hero-logo-img { max-width: 320px; }
   nav { padding: 0 20px; }
   .nav-links { display: none; }
   .hero { padding: 100px 20px 60px; }
@@ -878,7 +900,7 @@ footer {
 <!-- NAVBAR -->
 <nav>
   <a href="#inicio" class="nav-logo">
-    <img src="https://bspower.com.br/logo.jpg" alt="BS POWER" onerror="this.style.display='none'">
+    <img src="Logo_Gemini.jpg" alt="BS POWER">
     <div class="nav-logo-stack">
       <span class="nav-logo-nome">BS POWER</span>
       <span class="nav-logo-sub">Energia Solar</span>
@@ -906,7 +928,10 @@ footer {
         <a href="#contato" class="btn-outline">Solicitar orçamento →</a>
       </div>
     </div>
-    <div class="hero-stats">
+    <div class="hero-logo-wrap fade-up">
+      <img src="Logo_Gemini.jpg" alt="BS POWER — Sua Energia, nosso compromisso" class="hero-logo-img">
+    </div>
+    <div class="hero-stats" style="display:none">
       <div class="stat-card fade-up">
         <div class="stat-icone">🏗️</div>
         <div class="stat-numero" data-target="40">0</div>
