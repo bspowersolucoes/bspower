@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS POWER | Engenharia e Energia Solar</title>
+    <meta name="description" content="BS POWER - Liderada por Fábio Brasil Foly. Especialistas em energia solar com rigor técnico e experiência de 30 anos em sistemas complexos.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --preto: #08090b;
+            --preto2: #0d0f12;
+            --superficie: #111418;
+            --borda: #1e2229;
+            --amarelo: #f5c542;
+            --amarelo2: #ffd966;
+            --amarelo-dim: rgba(245,197,66,0.12);
+            --branco: #f0f2f5;
+            --texto: #c8cdd6;
+            --muted: #5a6070;
+            --bebas: 'Bebas Neue', sans-serif;
+            --dm: 'DM Sans', sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--preto);
+            color: var(--texto);
+            font-family: var(--dm);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Efeito de Ruído sutil no fundo */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 900;
+            padding: 0 40px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(8,9,11,0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .nav-logo img {
+            height: 55px;
+            width: auto;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+        .nav-links a { 
+            font-size: 13px; 
+            font-weight: 500; 
+            color: var(--texto); 
+            text-decoration: none; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--amarelo); }
+
+        .btn-whats {
+            background: var(--amarelo);
+            color: var(--preto);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .btn-whats:hover { transform: scale(1.05); }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 180px 40px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-titulo {
+            font-family: var(--bebas);
+            font-size: clamp(50px, 8vw, 85px);
+            line-height: 0.9;
+            color: var(--branco);
+            margin-bottom: 25px;
+        }
+        .hero-titulo span { color: var(--amarelo); }
+
+        .hero-img img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* QUEM SOMOS */
+        .quem-somos {
+            background: var(--preto2);
+            padding: 100px 40px;
+            border-top: 1px solid var(--borda);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .qs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .qs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .titulo-secao {
+            font-family: var(--bebas);
+            font-size: 45px;
+            color: var(--amarelo);
+            margin-bottom: 20px;
+        }
+
+        .qs-texto { font-size: 17px; text-align: justify; }
+
+        .experiencia-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .exp-card {
+            background: var(--superficie);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--borda);
+        }
+        .exp-card h4 { color: var(--amarelo); font-family: var(--bebas); font-size: 20px; }
+        .exp-card p { font-size: 13px; color: var(--muted); }
+
+        /* PORTFOLIO */
+        .portfolio { padding: 100px 40px; }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .projeto-card {
+            background: var(--superficie);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--borda);
+            transition: transform 0.3s;
+        }
+        .projeto-card:hover { transform: translateY(-10px); border-color: var(--amarelo); }
+
+        .projeto-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .projeto-info { padding: 20px; }
+        .projeto-tag { font-size: 11px; color: var(--amarelo); text-transform: uppercase; letter-spacing: 1px; }
+        .projeto-titulo { font-family: var(--bebas); font-size: 26px; color: var(--branco); margin: 5px 0; }
+        .projeto-local { font-size: 12px; color: var(--muted); }
+
+        /* FOOTER */
+        footer {
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid var(--borda);
+            background: var(--preto2);
+        }
+
+        @media (max-width: 900px) {
+            .hero, .qs-grid { grid-template-columns: 1fr; text-align: center; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="Logo Gemini.jpg" alt="BS POWER">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#sede">Nossa Sede</a></li>
+            <li><a href="https://wa.me/5577999713551" class="btn-whats">Falar com Consultor</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <h1 class="hero-titulo">Sua Energia, <span>nosso compromisso.</span></h1>
+            <p style="font-size: 18px; color: var(--muted); margin-bottom: 30px;">
+                Engenharia fotovoltaica com o rigor e a precisão de quem atuou 30 anos em sistemas críticos.
+            </p>
+            <a href="https://wa.me/5577999713551" class="btn-whats" style="padding: 15px 35px; font-size: 16px;">Solicitar Estudo de Viabilidade</a>
+        </div>
+        <div class="hero-img">
+            <img src="IMG_4157.jpg" alt="Energia Solar BS Power">
+        </div>
+    </section>
+
+    <section id="quem-somos" class="quem-somos">
+        <div class="qs-container">
+            <div class="qs-grid">
+                <div>
+                    <h2 class="titulo-secao">A Experiência por trás da Engenharia</h2>
+                    <p class="qs-texto">
+                        A <strong>BS POWER</strong> é liderada por <strong>Fábio Brasil Foly</strong>, cuja trajetória de quase três décadas na Força Aérea Brasileira moldou um padrão de excelência inegociável. 
+                        Com formação pela <em>Escola de Especialistas de Aeronáutica (EEAR)</em> e em fase de conclusão de <em>Engenharia Elétrica (UFOB)</em>, Fábio aplica o rigor técnico de sistemas de <strong>RADARES e Satélites</strong> em cada projeto de energia solar.
+                    </p>
+                </div>
+                <div class="experiencia-cards">
+                    <div class="exp-card">
+                        <h4>30 ANOS</h4>
+                        <p>De atuação técnica em sistemas críticos.</p>
+                    </div>
+                    <div class="exp-card">
+                        <h4>MILITAR</h4>
+                        <p>Disciplina e precisão em eletrônica e telecom.</p>
+                    </div>
+                    <div class="exp-card">
+                        <h4>ENGENHARIA</h4>
+                        <p>Acadêmico UFOB - Tecnologia de ponta.</p>
+                    </div>
+                    <div class="exp-card">
+                        <h4>RIGOR</h4>
+                        <p>Projetos calculados para máxima durabilidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sede" style="padding: 80px 40px; text-align: center;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 class="titulo-secao">Nossa Sede em Bom Jesus da Lapa</h2>
+            <p style="margin-bottom: 40px;">Utilizamos o que instalamos. Visite nossa sede e veja uma usina de alta performance em operação real.</p>
+            <img src="IMG_4157.jpg" alt="Sede BS Power" style="width: 100%; border-radius: 20px; border: 1px solid var(--borda);">
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2 class="titulo-secao" style="text-align: center;">Projetos de Alta Performance</h2>
+        <div class="portfolio-grid">
+            <div class="projeto-card">
+                <img src="FIMI0393.jpg" alt="Hotel Imperial" class="projeto-img">
+                <div class="projeto-info">
+                    <span class="projeto-tag">Comercial / 60kWp</span>
+                    <h3 class="projeto-titulo">Hotel Imperial</h3>
+                    <p class="projeto-local">Bom Jesus da Lapa - BA</p>
+                </div>
+            </div>
+            <div class="projeto-card">
+                <img src="FIMI0058.jpg" alt="Escola" class="projeto-img">
+                <div class="projeto-info">
+                    <span class="projeto-tag">Institucional / 55kWp</span>
+                    <h3 class="projeto-titulo">Ampliação em Escola</h3>
+                    <p class="projeto-local">Bom Jesus da Lapa - BA</p>
+                </div>
+            </div>
+            <div class="projeto-card">
+                <img src="FIMI0010.jpg" alt="Hangar" class="projeto-img">
+                <div class="projeto-info">
+                    <span class="projeto-tag">Aeronáutico / 18.9kWp</span>
+                    <h3 class="projeto-titulo">Hangar Guanambi</h3>
+                    <p class="projeto-local">Guanambi - BA</p>
+                </div>
+            </div>
+            <div class="projeto-card">
+                <img src="IMG_2898.jpg" alt="Residência" class="projeto-img">
+                <div class="projeto-info">
+                    <span class="projeto-tag">Residencial / 11.2kWp</span>
+                    <h3 class="projeto-titulo">Residência Brasília</h3>
+                    <p class="projeto-local">Brasília - DF</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <img src="Logo Gemini.jpg" alt="BS POWER" style="height: 50px; margin-bottom: 20px;">
+        <p style="font-size: 14px; color: var(--muted);">&copy; 2026 BS POWER - Engenharia e Energia Solar. Todos os direitos reservados.</p>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 10px;">Bom Jesus da Lapa - Bahia | (77) 99971-3551</p>
+    </footer>
+
+</body>
+</html>
