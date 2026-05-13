@@ -172,39 +172,54 @@
         }
     </style>
 
-<style>
-header, .header, .navbar, nav {
+<style id="bs-power-sticky-fix">
+/* Corrige topo fixo sem estourar a logo */
+header, .header, .site-header, .navbar {
     position: sticky !important;
-    top: 0;
-    z-index: 9999;
-    background: rgba(255,255,255,0.98);
-    backdrop-filter: blur(6px);
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(7, 10, 14, 0.96) !important;
+    backdrop-filter: blur(8px);
 }
 
-body{
-    overflow-x:hidden;
+/* Evita que a logomarca gigante aumente a altura do menu */
+header img, .header img, .site-header img, .navbar img, .logo img {
+    max-height: 82px !important;
+    width: auto !important;
+    object-fit: contain !important;
 }
 
-img{
-    max-width:100%;
-    height:auto;
+/* Mantém os links alinhados no topo */
+header nav, .header nav, .site-header nav, .navbar nav {
+    position: static !important;
+    background: transparent !important;
 }
 
-@media (max-width: 768px){
-    .container, section, div{
-        max-width:100%;
+/* Proteções responsivas */
+body {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    header img, .header img, .site-header img, .navbar img, .logo img {
+        max-height: 64px !important;
     }
 
-    h1{
-        font-size:2rem !important;
+    h1 {
+        font-size: 2rem !important;
     }
 
-    h2{
-        font-size:1.6rem !important;
+    h2 {
+        font-size: 1.6rem !important;
     }
 
-    h3{
-        font-size:1.2rem !important;
+    h3 {
+        font-size: 1.2rem !important;
     }
 }
 </style>
