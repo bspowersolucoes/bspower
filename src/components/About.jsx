@@ -21,7 +21,7 @@ export default function About() {
           transition={{ duration: 0.8, ease }}
         >
           <div className="k">Quem somos</div>
-          <h2>A Experiência por Trás da Engenharia.</h2>
+          <h2>A Experiência por Trás da Engenharia</h2>
           <p>
             A BS POWER é liderada por <strong>Fábio Brasil Foly</strong>, cuja trajetória
             de quase três décadas na Força Aérea Brasileira moldou um padrão de excelência
@@ -39,7 +39,7 @@ export default function About() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease, delay: 0.1 }}
         >
-          <h2>Mais do que painéis no telhado.</h2>
+          <h2>Mais do que painéis no telhado</h2>
           <p>
             Um sistema fotovoltaico bem feito precisa considerar telhado, orientação,
             sombreamento, corrente, tensão, proteção, padrão de entrada e regras da

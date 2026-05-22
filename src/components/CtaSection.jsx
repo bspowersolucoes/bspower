@@ -22,7 +22,7 @@ export default function CtaSection() {
             </p>
           </div>
           <a className="btn primary" href={WA_BILL} target="_blank" rel="noreferrer">
-            💬 Enviar foto da conta de luz
+            Enviar foto da conta de luz
           </a>
         </motion.div>
       </div>

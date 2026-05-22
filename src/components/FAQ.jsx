@@ -36,7 +36,7 @@ export default function FAQ() {
           transition={{ duration: 0.7, ease }}
         >
           <div className="k">Dúvidas frequentes</div>
-          <h2>Tudo que você precisa saber antes de decidir.</h2>
+          <h2>Tudo que você precisa saber antes de decidir</h2>
         </motion.div>
 
         <div className="faq-list">

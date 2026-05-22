@@ -1,8 +1,31 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 
 const WA_ANALYSIS = 'https://wa.me/5577999999999?text=Ol%C3%A1%2C%20quero%20enviar%20minha%20conta%20de%20energia%20para%20an%C3%A1lise%20gratuita'
 
 const ease = [0.22, 1, 0.36, 1]
+
+function CountUp({ end, suffix, duration = 1.5 }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true })
+
+  useEffect(() => {
+    if (!inView) return
+    const startTime = performance.now()
+    let frame
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / (duration * 1000), 1)
+      setCount(Math.floor(progress * end))
+      if (progress < 1) frame = requestAnimationFrame(tick)
+      else setCount(end)
+    }
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [inView, end, duration])
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
 
 export default function Hero() {
   return (
@@ -23,9 +46,9 @@ export default function Hero() {
               ⚡ Engenharia solar em Bom Jesus da Lapa
             </motion.div>
             <h1>
-              Reduza até 95% da sua conta de luz com
-              <em>Engenharia Solar de Alta Precisão.</em>
+              Reduza até 95% da sua conta de luz
             </h1>
+            <h3 className='subheadline'>Engenharia Solar de Alta Precisão.</h3>
             <p>
               Da sua casa à sua empresa, a BS POWER aplica o rigor técnico da aeronáutica
               para entregar sistemas solares ultrasseguros, eficientes e à prova de surpresas.
@@ -38,7 +61,7 @@ export default function Hero() {
               transition={{ duration: 0.7, ease, delay: 0.25 }}
             >
               <a className="btn primary" href={WA_ANALYSIS} target="_blank" rel="noreferrer">
-                📱 Enviar minha conta para análise gratuita
+                Enviar minha conta para análise gratuita
               </a>
               <a className="btn secondary" href="#calculadora">
                 Ver calculadora solar
@@ -63,13 +86,13 @@ export default function Hero() {
           transition={{ duration: 0.8, ease, delay: 0.4 }}
         >
           {[
-            { value: '30+', label: 'Anos de experiência técnica' },
-            { value: '150+', label: 'kWp instalados' },
-            { value: '4+', label: 'Projetos de alto porte' },
-            { value: '100%', label: 'Foco no cliente' },
+            { end: 30,  suffix: '+', label: 'Anos de experiência técnica' },
+            { end: 150, suffix: '+', label: 'kWp instalados' },
+            { end: 4,   suffix: '+', label: 'Projetos de alto porte' },
+            { end: 100, suffix: '%', label: 'Foco no cliente' },
           ].map((s) => (
             <div className="stat" key={s.label}>
-              <strong>{s.value}</strong>
+              <strong><CountUp end={s.end} suffix={s.suffix} /></strong>
               <span>{s.label}</span>
             </div>
           ))}

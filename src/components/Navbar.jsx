@@ -17,9 +17,9 @@ export default function Navbar() {
             <a href="#quem-somos">Quem somos</a>
             <a href="#calculadora">Calculadora</a>
             <a href="#portfolio">Portfólio</a>
-            <div className="btn primary" onClick={openWhatsapp}>
-              Falar com consultor
-            </div>
+          </div>
+          <div className="btn primary nav-cta" onClick={openWhatsapp}>
+            Falar com consultor
           </div>
           <a className="hamb" href="#servicos">☰</a>
         </nav>
