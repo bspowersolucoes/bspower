@@ -57,7 +57,7 @@ const installations = [
   {
     id: 9, lat: -22.271465, lon: -42.615865, type: 'Residencial',
     title: 'Instalação Residencial', size: '6.5 kWp',
-    imageUrl: 'https://images.unsplash.com/photo-1509391366360-1200b7e44e26?auto=format&fit=crop&w=400&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=400&q=80',
   },
 ]
 
