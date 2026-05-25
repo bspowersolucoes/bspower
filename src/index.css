@@ -29,7 +29,7 @@ img { display: block; max-width: 100%; }
 
 /* ── Navbar ────────────────────────────────────── */
 .topbar {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky; top: 0; z-index: 10000;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--bd);
@@ -74,7 +74,7 @@ nav {
 .hero { padding: 80px 0 70px; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .badge {
-  display: inline-flex; margin-bottom: 22px;
+  display: inline-flex; align-items: center; gap: 6px; margin-bottom: 22px;
   color: var(--yellow2); border: 1px solid rgba(212, 146, 10, 0.3);
   background: rgba(255, 197, 51, 0.1); border-radius: 999px;
   padding: 8px 16px; font-size: 12px; font-weight: 600;
@@ -177,6 +177,7 @@ label { font-weight: 600; color: var(--text); font-size: 14px; display: block; }
 .calc-section-label {
   font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--yellow2); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
 }
 .calc-row {
   display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
@@ -393,6 +394,38 @@ footer { border-top: 1px solid var(--bd); padding: 48px 0; background: var(--bg2
   gap: 32px;
   margin-top: 48px;
 }
+/* ── Map ───────────────────────────────────────── */
+.portfolio-map-wrap {
+  margin-top: 48px; margin-bottom: 40px;
+}
+.portfolio-map-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #ffc533; margin-bottom: 14px;
+}
+.installations-map-wrap {
+  height: 420px; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06);
+}
+.portfolio-map-legend {
+  display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px;
+}
+.portfolio-map-legend-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 500; color: #8d99aa;
+}
+.portfolio-map-legend-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+.map-popup {
+  display: flex; flex-direction: column; gap: 4px; min-width: 160px;
+}
+.map-popup-tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 20px; width: fit-content;
+}
+.map-popup strong { font-size: 13px; color: #1a1a2e; line-height: 1.4; }
+.map-popup span   { font-size: 12px; color: #6b7280; }
+
 .portfolio-card {
   border-radius: 20px; overflow: hidden;
   background: #181820;
@@ -454,11 +487,11 @@ footer { border-top: 1px solid var(--bd); padding: 48px 0; background: var(--bg2
   border-color: rgba(255, 197, 51, 0.45);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09);
 }
-.self-card-icon { font-size: 40px; margin-bottom: 16px; }
+.self-card-icon { color: var(--yellow2); margin-bottom: 16px; }
 .self-card h3 { font-size: 22px; margin-bottom: 24px; color: var(--text); }
 .self-list { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
 .self-list li { display: flex; gap: 12px; align-items: flex-start; }
-.self-item-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.self-item-icon { flex-shrink: 0; margin-top: 2px; color: var(--yellow2); }
 .self-list li span:last-child { color: var(--muted); line-height: 1.75; font-size: 15px; }
 .self-btn { width: 100%; margin-top: auto; }
 

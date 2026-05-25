@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import InstallationsMap from './InstallationsMap'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -45,6 +46,25 @@ export default function Portfolio() {
             Instalações reais, dimensionamento preciso e resultados mensuráveis
             em cada obra entregue.
           </p>
+        </motion.div>
+
+        <motion.div
+          className="portfolio-map-wrap"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8, ease }}
+        >
+          <p className="portfolio-map-label">Nossas instalações</p>
+          <InstallationsMap />
+          <div className="portfolio-map-legend">
+            {[['#ffc533','Residencial'],['#22c55e','Comercial'],['#60a5fa','Institucional'],['#f97316','Industrial']].map(([color, label]) => (
+              <span key={label} className="portfolio-map-legend-item">
+                <span className="portfolio-map-legend-dot" style={{ background: color }} />
+                {label}
+              </span>
+            ))}
+          </div>
         </motion.div>
 
         <div className="portfolio-canvas">

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Home, Factory, Lightbulb, ShieldCheck, TrendingUp, Lock, Settings } from 'lucide-react'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -7,23 +8,23 @@ const WA_NEGOCIO = 'https://wa.me/5577999999999?text=Ol%C3%A1%2C%20sou%20empres%
 
 const cards = [
   {
-    icon: '🏠',
+    icon: <Home size={36} />,
     title: 'Para sua Casa',
     items: [
-      { icon: '💡', text: 'Fim dos sustos na conta de luz: Transforme sua fatura em uma taxa mínima previsível.' },
-      { icon: '🛡️', text: 'Segurança absoluta para o seu lar: Equipamentos de ponta e instalação impecável sem goteiras.' },
-      { icon: '📈', text: 'Valorização imediata do imóvel: Sua casa passa a valer mais no mercado instantaneamente.' },
+      { icon: <Lightbulb size={18} />, text: 'Fim dos sustos na conta de luz: Transforme sua fatura em uma taxa mínima previsível.' },
+      { icon: <ShieldCheck size={18} />, text: 'Segurança absoluta para o seu lar: Equipamentos de ponta e instalação impecável sem goteiras.' },
+      { icon: <TrendingUp size={18} />, text: 'Valorização imediata do imóvel: Sua casa passa a valer mais no mercado instantaneamente.' },
     ],
     cta: 'Simular para minha Casa',
     href: WA_RESIDENCIA,
   },
   {
-    icon: '🏭',
+    icon: <Factory size={36} />,
     title: 'Para sua Empresa / Fazenda',
     items: [
-      { icon: '💰', text: 'Payback Acelerado e Comprovado: Dimensionamento focado estritamente na rentabilidade do seu negócio.' },
-      { icon: '🔒', text: 'Blindagem de Caixa (Hedge): Imunidade contra a inflação do setor elétrico.' },
-      { icon: '⚙️', text: 'Operação Zero Risco: Projetos compatibilizados com seu padrão de entrada, garantindo integridade dos maquinários.' },
+      { icon: <TrendingUp size={18} />, text: 'Payback Acelerado e Comprovado: Dimensionamento focado estritamente na rentabilidade do seu negócio.' },
+      { icon: <Lock size={18} />, text: 'Blindagem de Caixa (Hedge): Imunidade contra a inflação do setor elétrico.' },
+      { icon: <Settings size={18} />, text: 'Operação Zero Risco: Projetos compatibilizados com seu padrão de entrada, garantindo integridade dos maquinários.' },
     ],
     cta: 'Simular para meu Negócio',
     href: WA_NEGOCIO,

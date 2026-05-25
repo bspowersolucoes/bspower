@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Chart, registerables } from 'chart.js'
+import { MapPin, Zap, SlidersHorizontal, BarChart2, Sun, AlertTriangle } from 'lucide-react'
 import ESTADOS from '../data/estados.json'
 import MUNICIPIOS from '../data/municipios.json'
 import IRRADIACAO_BA from '../data/irradiacao_bahia.json'
@@ -371,7 +372,7 @@ export default function Calculator() {
         >
           {/* ── 1. Localização ── */}
           <div className="calc-section">
-            <p className="calc-section-label">📍 Localização</p>
+            <p className="calc-section-label"><MapPin size={15} /> Localização</p>
             <div className="calc-row">
               <div className="calc-field">
                 <label>Estado</label>
@@ -398,11 +399,11 @@ export default function Calculator() {
                 <span className="calc-spinner" /> Buscando dados de irradiação via PVGIS...
               </div>
             )}
-            {irrError && <div className="calc-irr-status error">⚠️ {irrError}</div>}
+            {irrError && <div className="calc-irr-status error"><AlertTriangle size={15} /> {irrError}</div>}
             {irr && (
               <>
                 <div className="calc-irr-status ok">
-                  ☀️ Dados de irradiação carregados para <strong>{cidade?.nome}</strong>
+                  <Sun size={15} /> Dados de irradiação carregados para <strong>{cidade?.nome}</strong>
                   <span className={`calc-fonte-badge${irr.fonte === 'pvgis' ? ' pvgis' : ''}`}>
                     {irr.fonte === 'offline' ? 'dados locais BA' : 'PVGIS'}
                   </span>
@@ -433,7 +434,7 @@ export default function Calculator() {
 
           {/* ── 2. Tipo de ligação ── */}
           <div className="calc-section">
-            <p className="calc-section-label">⚡ Tipo de Ligação</p>
+            <p className="calc-section-label"><Zap size={15} /> Tipo de Ligação</p>
             <div className="calc-fase-grid">
               {faseBtns.map(b => (
                 <button
@@ -455,7 +456,7 @@ export default function Calculator() {
 
           {/* ── 3. Parâmetros ── */}
           <div className="calc-section">
-            <p className="calc-section-label">🔧 Parâmetros de Cálculo</p>
+            <p className="calc-section-label"><SlidersHorizontal size={15} /> Parâmetros de Cálculo</p>
             <div className="calc-row">
               <div className="calc-field">
                 <label htmlFor="c-geracao">Geração pretendida</label>
@@ -502,7 +503,7 @@ export default function Calculator() {
           {/* ── Calculate ── */}
           <div className="calc-section" style={{ borderBottom: 'none' }}>
             <button className="btn primary calc-btn-full" onClick={calcular}>
-              ⚡ Calcular Dimensionamento
+              Calcular Dimensionamento
             </button>
             {calcError && <p className="calc-error">{calcError}</p>}
           </div>
@@ -554,7 +555,7 @@ export default function Calculator() {
 
             {irr.mensal?.length === 12 && (
               <div className="panel" style={{ marginTop: 20 }}>
-                <p className="calc-section-label" style={{ marginBottom: 16 }}>📈 Geração Estimada por Mês (kWh)</p>
+                <p className="calc-section-label" style={{ marginBottom: 16 }}><BarChart2 size={15} /> Geração Estimada por Mês (kWh)</p>
                 <GenerationChart
                   potenciaTotalKwp={result.potenciaTotalKwp}
                   irradiacaoMensal={irr.mensal}

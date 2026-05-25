@@ -1,20 +1,21 @@
 import { motion } from 'framer-motion'
+import { Sun, Shield, TrendingUp } from 'lucide-react'
 
 const ease = [0.22, 1, 0.36, 1]
 
 const services = [
   {
-    icon: '☀',
+    icon: <Sun size={26} />,
     title: 'Projeto fotovoltaico',
     desc: 'Dimensionamento do sistema, análise de consumo, escolha de equipamentos e compatibilização com a rede elétrica.',
   },
   {
-    icon: '🛡',
+    icon: <Shield size={26} />,
     title: 'Proteção e segurança',
     desc: 'Atenção a cabos, disjuntores, DPS, string box, aterramento e boas práticas de instalação elétrica.',
   },
   {
-    icon: '📈',
+    icon: <TrendingUp size={26} />,
     title: 'Viabilidade econômica',
     desc: 'Estimativa de geração, economia mensal, retorno do investimento e impacto na conta de energia.',
   },

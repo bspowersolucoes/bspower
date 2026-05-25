@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
+import { Zap } from 'lucide-react'
 
 const WA_ANALYSIS = 'https://wa.me/5577999999999?text=Ol%C3%A1%2C%20quero%20enviar%20minha%20conta%20de%20energia%20para%20an%C3%A1lise%20gratuita'
 
@@ -43,7 +44,7 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, ease, delay: 0.1 }}
             >
-              ⚡ Engenharia solar em Bom Jesus da Lapa
+              <Zap size={13} /> Engenharia solar em Bom Jesus da Lapa
             </motion.div>
             <h1>
               Reduza até 95% da sua conta de luz
